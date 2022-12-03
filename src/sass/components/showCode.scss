@@ -1,18 +1,19 @@
-@import"../_partials/helpers";
+@import "../_partials/helpers";
+
 .show-code {
     max-width: toRem(600px);
-    border: toRem(1px) solid darkgrey;
+    border: toRem(1px) solid darkgray;
     border-radius: toRem(4px);
-    margin:  auto auto toRem(10px);
-    &__visualisation {
-        padding: toRem(10px);
-        border-bottom: toRem(1px) solid;
+    margin: auto auto toRem(10px);
+    position: relative;
 
+    &__visualisation{
+        padding: toRem(10px);
+        border-bottom: toRem(1px) solid darkgray;
     }
-    &__btn {
-        line-height: 1;
-        display: block;
+    &__btn{
         margin: auto;
+        display: block;
         background: white;
         border: toRem(3px) solid green;
         border-radius: toRem(26px);
@@ -20,22 +21,24 @@
         font-family: sans-serif;
         color: green;
         padding: toRem(5px) toRem(15px);
-        transform: translateY(-50%);
         cursor: pointer;
         transition: all 400ms;
-
-        &:hover {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        &:hover{
             color: white;
             background: green;
-
         }
-
     }
-    &__code {
-
+    &__code{
+        background-color: lightcyan;
+        padding: toRem(24px) toRem(10px) toRem(10px);
+        margin: 0;
+        border-bottom-left-radius: toRem(4px);
+        border-bottom-right-radius: toRem(4px);
     }
-    &__code--hidden {
-
+    &__code--hidden{
+        display: none;
     }
 }
-
