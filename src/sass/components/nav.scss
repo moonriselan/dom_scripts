@@ -1,23 +1,84 @@
 @import "../_partials/_helpers";
-.content {
+
+
+body {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.main {
     padding: toRem(20px);
 }
 
+.overlay {
+
+    &--active {
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        width: 100%;
+        overflow: hidden;
+    }
+}
+
 .drawer {
+    position: absolute;
+    top: 0;
+    bottom:0;
+    background-color: #f4f1e4;
+    padding: toRem(10px);
+    width: 100%;
+    max-width: 70vw;
+    min-height: calc(100vh - toRem(20px));
+    border-top-right-radius: toRem(10px);
+    border-bottom-right-radius: toRem(10px);
+    font-family: "Open Sans", sans-serif;
+
+
     &__hdl {
+        color: dimgray;
+        font-size: toRem(15px);
+        font-weight: 500;
     }
 
     &__nav {
+        display: flex;
+        flex-direction: column;
     }
 
-    &__item {}
-    &__icon {
-        &--inbox {}
-        &--outbox {}
-        &--favorites {}
-        &--trash {}
+    &__item {
+        display: flex;
+        justify-content: flex-start;
+        font-size: toRem(15px);
+        font-weight: 500;
+        text-decoration: none;
+        color: rgb(72, 71, 58);
+        padding: toRem(2px) toRem(18px);
+        line-height: 1.2;
+        &:hover {
+            background-color: #e6e4bf;
+        }
     }
-    &__text {}
-    &__badge {}
+
+    &__icon {
+        &--inbox {
+        }
+
+        &--outbox {
+        }
+
+        &--favorites {
+        }
+
+        &--trash {
+        }
+    }
+
+    &__text {
+        flex-grow: 10;
+    }
+
+    &__badge {
+
+    }
 
 }
