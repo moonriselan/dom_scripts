@@ -1,131 +1,122 @@
-@import "../_partials/_helpers";
+@import "../_partials/_helpers.scss";
 
-
-body {
+body{
     padding-top: 0;
-    margin-top: 0;
 }
 
-.main {
-    padding: toRem(20px);
+.content{
+    padding:toRem(20px);
+
 }
-
-.overlay {
-
+.overlay{
+    transition: all 400ms ease-in-out;
     &--active {
         height: 100vh;
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgb(0, 0, 0, 0.7);
         width: 100%;
         overflow: hidden;
     }
 }
 
 .drawer {
+    transition: all 400ms ease-in-out;
     position: absolute;
+    left: calc(-80% - 20px);
     top: 0;
-    bottom: 0;
-    background-color: #f4f1e4;
-    padding: toRem(10px);
-    width: 100%;
-    max-width: 80vw;
-    min-height: calc(100vh - toRem(20px));
+    background-color:#f4f1e4;
     border-top-right-radius: toRem(10px);
     border-bottom-right-radius: toRem(10px);
-    font-family: "Open Sans", sans-serif;
+    padding: toRem(10px);
+    max-width: 80vw;
+    width: 100%;
+    min-height: calc(100vh - toRem(20px));
+    font-family: sans-serif;
 
-
-    &__hdl {
-        color: dimgray;
-        font-size: toRem(15px);
-        font-weight: 500;
+    &--active{
+        left: 0;
     }
 
+    &__hdl {
+        font-size: toRem(15px);
+        font-weight: 500;
+        color:dimgray;
+    }
     &__nav {
         display: flex;
         flex-direction: column;
     }
-
     &__item {
         display: flex;
         justify-content: flex-start;
-        font-size: toRem(15px);
-        font-weight: 500;
-        text-decoration: none;
-        color: rgb(72, 71, 58);
-        padding: toRem(2px) toRem(18px);
         line-height: 1.2;
+        padding: toRem(15px) toRem(18px);
+        font-weight: 500;
+        color:dimgray;
+        text-decoration: none;
 
-        &:hover {
-            background-color: #e6e4bf;
+        &:hover{
+            background-color:#e6e4bf;
+            border-radius: toRem(24px);
         }
     }
-
     &__icon {
-        &--inbox {
-        }
-
-        &--outbox {
-        }
-
-        &--favorites {
-        }
-
-        &--trash {
-        }
+        &--inbox {}
+        &--outbox {}
+        &--favorites {}
+        &--trash {}
     }
-
     &__text {
         flex-grow: 10;
     }
-
     &__badge {
 
     }
-
-    &__hamburger {
+    &__hamburger{
         width: toRem(46px);
         height: toRem(46px);
         line-height: 0;
         cursor: pointer;
         overflow: hidden;
         padding: toRem(10px);
+        position: absolute;
+        right: toRem(-76px);
 
-        span {
+        span{
+            border-radius: toRem(4px);
+            position: relative;
             transition: all 400ms ease-in-out;
+            background-color: black;
             display: inline-block;
             width: toRem(46px);
             height: toRem(9px);
             margin-bottom: toRem(4.5px);
             margin-top: toRem(4.5px);
-            background-color: black;
-            position: relative;
-
             &:first-child {
                 margin-top: 0;
             }
-
             &:last-child {
                 margin-bottom: 0;
             }
         }
+        &--active {
 
-        &:hover {
-
-            span:first-child {
+            span:first-child{
                 transform-origin: center left;
                 transform: rotate(50deg);
 
             }
-            span:nth-child(2) {
+            span:nth-child(2){
                 transform: translateX(-200%);
             }
-            span:last-child {
+            span:last-child{
                 transform-origin: center left;
                 transform: rotate(-50deg);
 
             }
 
         }
+
+
     }
 
 }
