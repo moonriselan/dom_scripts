@@ -153,13 +153,16 @@ body {
         bottom: 0;
         left: 0;
         right: 0;
-        &+div .nav-bar__hamburger {
+
+        & + div .nav-bar__hamburger {
             @extend %btn-hamburger;
         }
-        &+div .drawer {
+
+        & + div .drawer {
             transform: translateX(0);
         }
-        &+div {
+
+        & + div {
             width: 100vh;
             height: 100vh;
             overflow: hidden;
