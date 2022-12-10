@@ -23,7 +23,7 @@ body {
 .drawer {
     position: absolute;
     top: 0;
-    bottom:0;
+    bottom: 0;
     background-color: #f4f1e4;
     padding: toRem(10px);
     width: 100%;
@@ -54,6 +54,7 @@ body {
         color: rgb(72, 71, 58);
         padding: toRem(2px) toRem(18px);
         line-height: 1.2;
+
         &:hover {
             background-color: #e6e4bf;
         }
@@ -79,6 +80,52 @@ body {
 
     &__badge {
 
+    }
+
+    &__hamburger {
+        width: toRem(46px);
+        height: toRem(46px);
+        line-height: 0;
+        cursor: pointer;
+        overflow: hidden;
+        padding: toRem(10px);
+
+        span {
+            transition: all 400ms ease-in-out;
+            display: inline-block;
+            width: toRem(46px);
+            height: toRem(9px);
+            margin-bottom: toRem(4.5px);
+            margin-top: toRem(4.5px);
+            background-color: black;
+            position: relative;
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &:hover {
+
+            span:first-child {
+                transform-origin: center left;
+                transform: rotate(50deg);
+
+            }
+            span:nth-child(2) {
+                transform: translateX(-200%);
+            }
+            span:last-child {
+                transform-origin: center left;
+                transform: rotate(-50deg);
+
+            }
+
+        }
     }
 
 }
