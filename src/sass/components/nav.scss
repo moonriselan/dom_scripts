@@ -1,77 +1,90 @@
-@import "../_partials/_helpers.scss";
+@import "../_partials/helpers";
 
-body{
+body {
     padding-top: 0;
 }
 
-.content{
-    padding:toRem(20px);
+.content {
+    padding: toRem(20px);
+}
 
-}
-.overlay{
-    transition: all 400ms ease-in-out;
-    &--active {
-        height: 100vh;
-        background-color: rgb(0, 0, 0, 0.7);
-        width: 100%;
-        overflow: hidden;
-    }
-}
 
 .drawer {
-    transition: all 400ms ease-in-out;
     position: absolute;
-    left: calc(-80% - 20px);
-    top: 0;
-    background-color:#f4f1e4;
-    border-top-right-radius: toRem(10px);
-    border-bottom-right-radius: toRem(10px);
+    //top: 0;
+    //left: calc(-80% - 20px);
+    transform: translateX(-100%);
+    background-color: #f4f1e4;
     padding: toRem(10px);
     max-width: 80vw;
     width: 100%;
-    min-height: calc(100vh - toRem(20px));
-    font-family: sans-serif;
+    min-height: calc(100vh - toRem(86px));
+    border-bottom-right-radius: toRem(10px);
+    font-family: 'Open sans', sans-serif;
+    transition: all 400ms ease-in-out;
+    box-shadow: 0 5px 5px 0 rgba(66, 68, 90, 1);
+    z-index: 42;
 
-    &--active{
-        left: 0;
-    }
 
     &__hdl {
+        color: dimgray;
         font-size: toRem(15px);
         font-weight: 500;
-        color:dimgray;
     }
+
     &__nav {
         display: flex;
         flex-direction: column;
     }
+
     &__item {
         display: flex;
         justify-content: flex-start;
-        line-height: 1.2;
-        padding: toRem(15px) toRem(18px);
+        font-size: toRem(15px);
         font-weight: 500;
-        color:dimgray;
         text-decoration: none;
+        color: rgb(72, 71, 58);
+        padding: toRem(15px) toRem(18px);
+        line-height: 1.2;
+        border-radius: toRem(24px);
 
-        &:hover{
-            background-color:#e6e4bf;
-            border-radius: toRem(24px);
+        &:hover {
+            background-color: #e6e4bf;
         }
     }
+
     &__icon {
-        &--inbox {}
-        &--outbox {}
-        &--favorites {}
-        &--trash {}
+        &--inbox {
+        }
+
+        &--outbox {
+        }
+
+        &--favorites {
+        }
+
+        &--trash {
+        }
     }
+
     &__text {
         flex-grow: 10;
     }
-    &__badge {
 
+    &__badge {
     }
-    &__hamburger{
+
+}
+
+.nav-bar {
+    background-color: #f4f1e4;
+    box-shadow: 0 5px 5px 0 rgba(66, 68, 90, 1);
+    min-height: toRem(66px);
+    position: sticky;
+    z-index: 41;
+
+
+    &__hamburger {
         width: toRem(46px);
         height: toRem(46px);
         line-height: 0;
@@ -79,44 +92,77 @@ body{
         overflow: hidden;
         padding: toRem(10px);
         position: absolute;
-        right: toRem(-76px);
+        left: toRem(10px);
 
-        span{
-            border-radius: toRem(4px);
+
+        span {
             position: relative;
-            transition: all 400ms ease-in-out;
-            background-color: black;
             display: inline-block;
             width: toRem(46px);
             height: toRem(9px);
-            margin-bottom: toRem(4.5px);
             margin-top: toRem(4.5px);
+            margin-bottom: toRem(4.5px);
+            background-color: black;
+            transition: all 400ms ease-in-out;
+            border-radius: toRem(4px);
+
             &:first-child {
                 margin-top: 0;
             }
+
             &:last-child {
                 margin-bottom: 0;
             }
         }
-        &--active {
-
-            span:first-child{
-                transform-origin: center left;
-                transform: rotate(50deg);
-
-            }
-            span:nth-child(2){
-                transform: translateX(-200%);
-            }
-            span:last-child{
-                transform-origin: center left;
-                transform: rotate(-50deg);
-
-            }
-
-        }
 
 
     }
+}
 
+%btn-hamburger {
+
+    span:first-child {
+        transform-origin: center left;
+        transform: rotate(50deg);
+    }
+
+    span:nth-child(2) {
+        transform: translateX(-200%);
+    }
+
+    span:last-child {
+        transform-origin: center left;
+        transform: rotate(-50deg);
+    }
+
+}
+
+.overlay {
+    transition: all 400ms ease-in-out;
+    z-index: 6;
+
+    &.active {
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        width: 100%;
+        overflow: hidden;
+        min-height: 100vh;
+
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        &+div .nav-bar__hamburger {
+            @extend %btn-hamburger;
+        }
+        &+div .drawer {
+            transform: translateX(0);
+        }
+        &+div {
+            width: 100vh;
+            height: 100vh;
+            overflow: hidden;
+        }
+    }
 }
