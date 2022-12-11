@@ -5,6 +5,7 @@
     min-height: 100vh;
 }
 .cookies-bar {
+    display: none;
     box-sizing: border-box;
     position: sticky;
     bottom: 0;
@@ -12,7 +13,9 @@
     background-color: darkgrey;
     width: 100%;
     padding: toRem(10px);
-
+    &.active {
+        display: block;
+    }
     &__box {
         max-width: toRem(1200px);
         margin-inline: auto;
