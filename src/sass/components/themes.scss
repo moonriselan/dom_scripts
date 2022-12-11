@@ -1,0 +1,45 @@
+@import "../_partials/_helpers";
+
+.theme-switch {
+    display: inline-block;
+    background-color: darkslategrey;
+    border-radius: toRem(34px);
+    width: toRem(60px);
+    height: toRem(34px);
+    margin: toRem(5px);
+    position: relative;
+    cursor: pointer;
+    transition: all 400ms ease-in-out;
+    &__slider {
+        text-indent: -9999px;
+        display: inline-block;
+        border-radius: 50%;
+        background-color: white;
+        width: toRem(26px);
+        height: toRem(26px);
+        position: absolute;
+        top: toRem(4px);
+        left: toRem(4px);
+        transition: all 400ms ease-in-out;
+
+    }
+
+    &__checkbox {
+        display: none;
+        &:checked + label {
+            background: pink;
+            span {
+                left: 30px;
+                right: 4px;
+            }
+        }
+    }
+}
+
+
+.box {
+    background: lightblue;
+    padding: toRem(10px);
+
+}
+
