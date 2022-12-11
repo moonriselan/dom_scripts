@@ -1,14 +1,35 @@
-.cookies-bar {
-    &__box {
+@import "../_partials/_helpers";
 
+
+.container{
+    min-height: 100vh;
+}
+.cookies-bar {
+    box-sizing: border-box;
+    position: sticky;
+    bottom: 0;
+    border-top: 1px solid gray;
+    background-color: darkgrey;
+    width: 100%;
+    padding: toRem(10px);
+
+    &__box {
+        max-width: toRem(1200px);
+        margin-inline: auto;
     }
+
     &__title {
 
     }
+
     &__text {
 
     }
+
     &__accept-button {
 
     }
 }
+
+
+
