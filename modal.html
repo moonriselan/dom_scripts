@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Modal</title>
+    <link rel="stylesheet" href="src/styles/style.css">
+    <script src="./src/scripts/modal.js" async defer></script>
+</head>
+<body>
+
+<button class="modal__trigger btn " data-js="btn-open-model">Launch demo modal</button>
+
+<div class="overlay__modal" data-js="overlay-modal" data-exit></div>
+<div class="modal" data-js="modal">
+    <div class="modal__header">
+        <h2 class="modal__title">Modal title</h2>
+        <button class="modal__decline-btn" data-exit></button>
+    </div>
+    <div class="modal__content">
+        Modal body text goes here.
+    </div>
+    <div class="modal__footer">
+        <button class="modal__btn modal__btn--secondary" data-exit>Close</button>
+        <button class="modal__btn btn modal__btn--primary" data-exit>Save changes</button>
+    </div>
+</div>
+</body>
+</html>
